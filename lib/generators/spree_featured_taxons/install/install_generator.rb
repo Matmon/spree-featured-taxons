@@ -1,4 +1,4 @@
-module SpreeFeaturedTaxon
+module SpreeFeaturedTaxons
   module Generators
     class InstallGenerator < Rails::Generators::Base
 

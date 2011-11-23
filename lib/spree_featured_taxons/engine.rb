@@ -1,4 +1,4 @@
-module SpreeFeaturedTaxon
+module SpreeFeaturedTaxons
   class Engine < Rails::Engine
     engine_name 'spree_featured_taxons'
 
@@ -19,7 +19,7 @@ module SpreeFeaturedTaxon
       end
 
       Taxon.class_eval do
-        scope :featured, :conditions => ['deleted_at is null and featured = ?', true]
+        scope :featured, :conditions => ['featured = ?', true]
       end
 
     end
