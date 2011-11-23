@@ -4,6 +4,7 @@ gem 'sqlite3'
 
 group :test do
   gem 'rspec-rails', '= 2.6.1'
+  gem 'factory_girl_rails', '~>1.4'
 end
 
 group :cucumber do

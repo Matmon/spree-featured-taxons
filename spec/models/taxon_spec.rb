@@ -16,8 +16,14 @@ describe Taxon do
 		end
 
 		it "should find featured taxons" do
-			Factory(:taxon)
+			t1 = Factory(:taxon)
+			t2 = Factory(:taxon, :featured => true)
+			featured = Taxon.featured
+			featured.should include(t2)
+			featured.should_not include(t1)
+			featured.size.should == 1
 		end
+
 	end
 
 end

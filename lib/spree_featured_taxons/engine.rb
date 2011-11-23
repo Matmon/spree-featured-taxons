@@ -18,10 +18,6 @@ module SpreeFeaturedTaxons
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
 
-      Taxon.class_eval do
-        scope :featured, :conditions => ['featured = ?', true]
-      end
-
     end
 
     config.to_prepare &method(:activate).to_proc
