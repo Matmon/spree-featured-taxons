@@ -7,4 +7,5 @@
 tmp
 nbproject
 *.swp
+.rvmrc
 spec/dummy
