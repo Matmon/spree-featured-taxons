@@ -40,11 +40,9 @@ Install
 Testing
 -------
 
-haven't setup testing yet
-
-Be sure to add the rspec-rails gem to your Gemfile and then create a dummy test app for the specs to run against.
-
-    $ bundle exec rake test app
+    $ bundle exec rake test_app
+    $ cd spec/dummy 
+    $ bundle exec rails g spree_featured_taxons:install
     $ bundle exec rspec spec
 
 Copyright (c) 2011 [name of extension creator], released under the New BSD License
