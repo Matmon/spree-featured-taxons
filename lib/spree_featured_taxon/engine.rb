@@ -1,6 +1,6 @@
-module SpreeFeaturedTaxons
+module SpreeFeaturedTaxon
   class Engine < Rails::Engine
-    engine_name 'spree_featured_taxons'
+    engine_name 'spree_featured_taxon'
 
     config.autoload_paths += %W(#{config.root}/lib)
 

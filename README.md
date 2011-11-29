@@ -8,12 +8,12 @@ Install
 =======
 
 1. Add the following to your Gemfile
-   gem 'spree_featured_taxons', #TODO change to git path when we publish'
+   gem 'spree_featured_taxon', #TODO change to git path when we publish'
 
 2. Run `bundle install`
 
 3. To setup the asset pipeline includes and copy migrations run:  
-   bundle exec rails g spree_featured_taxons:install
+   bundle exec rails g spree_featured_taxon:install
 
 4. In your overrides you can use Taxon.featured for a list of featured taxons
    also adds helper
@@ -42,7 +42,7 @@ Testing
 
     $ bundle exec rake test_app
     $ cd spec/dummy 
-    $ bundle exec rails g spree_featured_taxons:install
+    $ bundle exec rails g spree_featured_taxon:install
     $ bundle exec rspec spec
 
-Copyright (c) 2011 [name of extension creator], released under the New BSD License
+Copyright (c) 2011 Matmon Internet, Inc., released under the New BSD License
