@@ -43,6 +43,7 @@ Testing
     $ bundle exec rake test_app
     $ cd spec/dummy 
     $ bundle exec rails g spree_featured_taxon:install
-    $ bundle exec rspec spec
+    $ cd ../../
+    $ bundle exec rake spec
 
 Copyright (c) 2011 Matmon Internet, Inc., released under the New BSD License
