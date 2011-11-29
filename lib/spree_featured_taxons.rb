@@ -1,2 +1,2 @@
 require 'spree_core'
-require 'spree_featured_taxons/engine'
+require 'spree_featured_taxon/engine'
