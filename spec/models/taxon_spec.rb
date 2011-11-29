@@ -4,6 +4,7 @@ describe "Taxon#featured" do
   subject { Taxon }
   let(:featured)     { Factory(:taxon, :featured => true)  }
   let(:not_featured) { Factory(:taxon, :featured => false) }
+
   it "should include featured taxons" do
     subject.featured.should include(featured)
   end
@@ -12,8 +13,11 @@ describe "Taxon#featured" do
     subject.featured.should_not include(not_featured)
   end
 
-  it "should count featured taxons" do
-    subject.featured.size.should == 1
+  describe "count" do
+    before { featured; not_featured }
+    it "should count featured taxons" do
+      subject.featured.size.should == 1
+    end
   end
 end
 
