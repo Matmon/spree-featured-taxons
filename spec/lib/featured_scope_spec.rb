@@ -71,6 +71,11 @@ describe "FeaturedScope sampling" do
 
   subject { SpreeFeaturedTaxon::FeaturedScope.new(scope) }
 
+  it "should be immutable" do
+    s = subject.sample(sample_size)
+    subject.count.should_not == s.count
+  end
+
   it "should sample upto the given size" do
     subject.sample(sample_size).count.should == sample_size
   end

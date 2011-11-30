@@ -14,8 +14,7 @@ module SpreeFeaturedTaxon
     end
 
     def sample(size)
-      @sample_size = size
-      self
+      FeaturedScope.new(@scope, size)
     end
 
     private
