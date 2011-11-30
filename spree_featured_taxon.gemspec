@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_core', '~> 0.70'
 
   s.add_development_dependency 'rspec-rails', '~> 2.6'
+  s.add_development_dependency 'capybara', '~> 1.1'
   s.add_development_dependency 'factory_girl_rails', '~> 1.4'
   s.add_development_dependency 'sqlite3'
 end
