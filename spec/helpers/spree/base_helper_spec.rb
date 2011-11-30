@@ -30,6 +30,13 @@ describe "Spree::BaseHelper#featured_taxon_list" do
     it "should not give a current class for list items" do
       featured_taxon_list(taxons).should_not have_selector("li.current")
     end
+
+    it "should link to taxons" do
+      list = featured_taxon_list(taxons)
+      taxons.each do |t|
+        list.should have_selector("a[href='/t/#{t.permalink}']")
+      end
+    end
   end
 
   describe "with given options" do
@@ -48,6 +55,15 @@ describe "Spree::BaseHelper#featured_taxon_list" do
       current.should_receive(:self_and_ancestors).and_return([current])
       featured_taxon_list(taxons, :current => current).
         should have_selector("li.current")
+    end
+  end
+
+  describe "when customizing item renderer" do
+    it "should yield to given block for taxon rendering inside of li" do
+      list = featured_taxon_list(taxons) { |t| "Hello, #{t.name}" }
+      taxons.each do |t|
+        list.should have_selector("li", :text => "Hello, #{t.name}")
+      end
     end
   end
 end
