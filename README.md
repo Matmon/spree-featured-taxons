@@ -1,7 +1,14 @@
 SpreeFeaturedTaxon
 ==================
 
-Introduction goes here.
+Add basic ability to mark a taxon as featured from the admin interface.  
+Adds helpers for you to use in your overrides.
+
+Developing against 
+
+* Ruby 1.9.2 p290
+* Rails 3.1.1
+* Spree Gem > 0.70
 
 
 Install
