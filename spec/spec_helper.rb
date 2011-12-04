@@ -1,13 +1,12 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
-
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
+require "rspec/rails"
+require "capybara/rspec"
 
-require 'rspec/rails'
-require 'capybara/rspec'
-require 'spree_core/testing_support/factories'
+require "spree_core/testing_support/factories"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
