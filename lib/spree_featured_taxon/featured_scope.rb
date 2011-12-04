@@ -14,10 +14,6 @@ module SpreeFeaturedTaxon
       @scope.clone
     end
 
-    def limit(number)
-      FeaturedScope.new(@scope.limit(number), sample_size)
-    end
-
     def sample(size)
       FeaturedScope.new(@scope, size)
     end
