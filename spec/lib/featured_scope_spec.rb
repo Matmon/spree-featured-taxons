@@ -35,30 +35,6 @@ describe SpreeFeaturedTaxon::FeaturedScope do
   end
 end
 
-describe "FeaturedScope limiting" do
-  let(:items) { (1..3).to_a }
-  let(:limit) { 2 }
-  let(:scope) do
-    s = DummyScope.new(items)
-    s.should_receive(:limit).once.with(limit).
-      and_return(DummyScope.new(items[0...limit]))
-    s
-  end
-  subject { SpreeFeaturedTaxon::FeaturedScope.new(scope) }
-
-  it "should be chainable" do
-    subject.limit(limit).should be_kind_of SpreeFeaturedTaxon::FeaturedScope
-  end
-
-  it "should preserve sample size" do
-    subject.sample(5).limit(limit).sample_size.should == 5
-  end
-
-  it "should limit the size of the item population" do
-    subject.limit(limit).count.should == limit
-  end
-end
-
 describe "FeaturedScope sampling" do
   let(:items) { (1..100).to_a }
   let(:sample_size) { 25 }
