@@ -1,26 +1,26 @@
 SpreeFeaturedTaxon
 ==================
 
-Add basic ability to mark a taxon as featured from the admin interface.  
+Add basic ability to mark a taxon as featured from the admin interface.
 Adds helpers for you to use in your overrides.
 
-Developing against 
+Developing against
 
 * Ruby 1.9.2 p290
-* Rails 3.1.1
-* Spree Gem > 0.70
+* Rails 3.1.3
+* Spree Gem =1.0.0.rc2
 
 
 Install
 =======
 
-1. Add the following to your Gemfile  
+1. Add the following to your Gemfile
    `gem 'spree_featured_taxon', :git => 'git://github.com/Matmon/spree-featured-taxons.git'`
 
 2. Run
    `bundle install`
 
-3. To setup the asset pipeline includes and copy migrations run:  
+3. To setup the asset pipeline includes and copy migrations run:
    `bundle exec rails g spree_featured_taxon:install`
 
 4. In your overrides you can use `Taxon.featured` for a collection of featured taxons.
@@ -85,9 +85,6 @@ Testing
 
 ```
     $ bundle exec rake test_app
-    $ cd spec/dummy
-    $ bundle exec rails g spree_featured_taxon:install
-    $ cd ../../
     $ bundle exec rake spec
 ```
 

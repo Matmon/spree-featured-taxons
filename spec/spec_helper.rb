@@ -3,10 +3,11 @@ ENV["RAILS_ENV"] = "test"
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
-require "rspec/rails"
-require "capybara/rspec"
-
-require "spree_core/testing_support/factories"
+require 'rspec/rails'
+require 'capybara/rspec'
+require "spree/core/testing_support/env"
+require "spree/core/testing_support/factories"
+require "spree/url_helpers"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,4 +30,5 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  config.include Spree::UrlHelpers
 end

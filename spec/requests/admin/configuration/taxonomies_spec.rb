@@ -9,7 +9,7 @@ describe "Taxonomies" do
     end
 
     it "should allow an admin to check 'featured' when editing a taxon" do
-      visit edit_admin_taxonomy_taxon_path(taxon.taxonomy, taxon)
+      visit spree.edit_admin_taxonomy_taxon_path(taxon.taxonomy, taxon)
       find_by_id("taxon_featured").should_not be_checked
       check "Featured"
       click_button "Update"
@@ -24,7 +24,7 @@ describe "Taxonomies" do
     end
 
     it "should allow admin to uncheck 'featured' when editing a taxon" do
-      visit edit_admin_taxonomy_taxon_path(taxon.taxonomy, taxon)
+      visit spree.edit_admin_taxonomy_taxon_path(taxon.taxonomy, taxon)
       find_by_id("taxon_featured").should be_checked
       uncheck "Featured"
       click_button "Update"

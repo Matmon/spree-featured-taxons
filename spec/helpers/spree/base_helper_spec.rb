@@ -1,7 +1,8 @@
 require 'spec_helper'
+include Spree
+include Spree::BaseHelper
 
 describe "Spree::BaseHelper#featured_taxon_list" do
-  include Spree::BaseHelper
   let(:taxons) do
     [
       mock_model(Taxon, :name => 'one', :permalink =>'one'),

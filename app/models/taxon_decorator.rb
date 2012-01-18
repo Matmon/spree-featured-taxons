@@ -1,3 +1,5 @@
-Taxon.class_eval do 
-	scope :featured, :conditions => ['featured = ?', true]
+module Spree
+  Taxon.class_eval do
+    scope :featured, where("featured = ?", true)
+  end
 end

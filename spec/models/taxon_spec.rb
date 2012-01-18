@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe "Taxon#featured" do
+describe "Spree::Taxon#featured" do
   subject { Taxon }
+
   let(:featured)     { Factory(:taxon, :featured => true)  }
   let(:not_featured) { Factory(:taxon, :featured => false) }
 
@@ -21,7 +22,7 @@ describe "Taxon#featured" do
   end
 end
 
-describe "Taxon" do
+describe "Spree::Taxon" do
   describe "when featured" do
     subject { Factory.build(:taxon, :featured => true) }
     it "should indicate it is featured" do
