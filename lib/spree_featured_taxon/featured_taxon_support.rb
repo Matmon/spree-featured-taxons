@@ -7,7 +7,7 @@ module SpreeFeaturedTaxon
     # set base scope for featured taxons.  This method is available in
     # spree controllers
     def featured_taxon_scope(&b)
-      @featured_taxon_scope ||= Taxon.featured
+      @featured_taxon_scope ||= Spree::Taxon.featured
       if block_given?
         @featured_taxon_scope = @featured_taxon_scope.instance_eval &b
       end
