@@ -4,7 +4,7 @@ require 'forwardable'
 class DummyScope
   extend Forwardable
   include Enumerable
-  def_delegators :@items, :each, :size
+  def_delegators :@items, :each, :size, :empty?
 
   def initialize(items=[])
     @items = items
@@ -26,6 +26,11 @@ describe SpreeFeaturedTaxon::FeaturedScope do
 
   it "should indicate its count" do
     subject.count.should == 3
+  end
+
+  describe "when empty" do
+    let(:scope) { DummyScope.new([]) }
+    it("should indicate it's empty") { subject.should be_empty }
   end
 
   it "should yield each item in the scope" do

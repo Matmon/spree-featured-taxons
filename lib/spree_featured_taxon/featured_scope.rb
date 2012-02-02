@@ -2,7 +2,7 @@ module SpreeFeaturedTaxon
   class FeaturedScope
     include Enumerable
 
-    delegate :size, :each, :to => :sampled_scope
+    delegate :size, :each, :empty?, :to => :sampled_scope
     attr_reader :sample_size
 
     def initialize(scope, sample_size=nil)
