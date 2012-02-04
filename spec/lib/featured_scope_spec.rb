@@ -1,9 +1,10 @@
 require 'spec_helper'
 require 'forwardable'
 
-class DummyScope
+class TestScope
   extend Forwardable
   include Enumerable
+
   def_delegators :@items, :each, :size, :empty?
 
   def initialize(items=[])
@@ -11,13 +12,13 @@ class DummyScope
   end
 
   def limit(number)
-    DummyScope.new(@items[0...number])
+    TestScope.new(@items[0...number])
   end
 end
 
 describe SpreeFeaturedTaxon::FeaturedScope do
   let(:items) { (1..3).to_a }
-  let(:scope) { DummyScope.new(items) }
+  let(:scope) { TestScope.new(items) }
   subject { SpreeFeaturedTaxon::FeaturedScope.new(scope) }
 
   it "should indicate its size" do
@@ -29,7 +30,7 @@ describe SpreeFeaturedTaxon::FeaturedScope do
   end
 
   describe "when empty" do
-    let(:scope) { DummyScope.new([]) }
+    let(:scope) { TestScope.new([]) }
     it("should indicate it's empty") { subject.should be_empty }
   end
 
@@ -44,9 +45,9 @@ describe "FeaturedScope sampling" do
   let(:items) { (1..100).to_a }
   let(:sample_size) { 25 }
   let(:scope) do
-    s = DummyScope.new(items)
+    s = TestScope.new(items)
     s.should_receive(:sample).with(sample_size).at_least(:once).
-      and_return(DummyScope.new(items.sample(sample_size)))
+      and_return(TestScope.new(items.sample(sample_size)))
     s
   end
 

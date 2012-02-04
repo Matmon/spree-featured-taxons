@@ -1,6 +1,7 @@
 Spree::BaseHelper.module_eval do
 
   def featured_taxon_list(taxons, *args, &b)
+    taxons = Array(taxons)
     return '' if taxons.empty?
     opt        = args.extract_options!
     list_id    = opt.fetch(:id)    { 'featured-taxons' }

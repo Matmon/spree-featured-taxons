@@ -7,9 +7,10 @@ require "spree/core/testing_support/common_rake"
 
 RSpec::Core::RakeTask.new
 
+desc "Default Task"
 task :default => [:spec]
-spec = eval(File.read('spree_featured_taxon.gemspec'))
 
+spec = eval(File.read('spree_featured_taxon.gemspec'))
 Gem::PackageTask.new(spec) do |p|
   p.gem_spec = spec
 end

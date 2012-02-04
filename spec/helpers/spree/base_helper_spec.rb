@@ -4,10 +4,12 @@ include Spree::BaseHelper
 
 describe "Spree::BaseHelper#featured_taxon_list" do
   let(:taxons) do
-    [
-      mock_model(Taxon, :name => 'one', :permalink =>'one'),
-      mock_model(Taxon, :name => 'two', :permalink => 'two')
-    ]
+    [ mock_model(Taxon, :name => 'one', :permalink =>'one'),
+      mock_model(Taxon, :name => 'two', :permalink => 'two') ]
+  end
+
+  it "should return empty string if taxons are nil" do
+    featured_taxon_list(nil).should be_empty
   end
 
   it "should return empty string if there are no taxons" do
