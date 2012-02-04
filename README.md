@@ -8,7 +8,7 @@ Developing against
 
 * Ruby 1.9.2 p290
 * Rails 3.1.3
-* Spree Gem =1.0.0.rc2
+* Spree Gem =1.0.0.rc3
 
 
 Install
@@ -23,7 +23,7 @@ Install
 3. To setup the asset pipeline includes and copy migrations run:
    `bundle exec rails g spree_featured_taxon:install`
 
-4. In your overrides you can use `Taxon.featured` for a collection of featured taxons.
+4. In your overrides you can use `featured_taxons` for a collection of featured taxons.
 
 5. It also adds a helper, **featured_taxon_list**, that provides an unordered list of taxons.
 
@@ -88,4 +88,4 @@ Testing
     $ bundle exec rake spec
 ```
 
-Copyright (c) 2011 Matmon Internet, Inc., released under the New BSD License
+Copyright (c) 2012 Matmon Internet, Inc., released under the New BSD License
