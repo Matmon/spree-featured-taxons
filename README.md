@@ -8,7 +8,7 @@ Developing against
 
 * Ruby 1.9.2 p290
 * Rails 3.1.3
-* Spree Gem =1.0.0.rc3
+* Spree Gem =1.0.0.rc4
 
 
 Install

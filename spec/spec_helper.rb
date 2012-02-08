@@ -5,13 +5,15 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rspec'
-require "spree/core/testing_support/env"
-require "spree/core/testing_support/factories"
-require "spree/url_helpers"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each {|f| require f }
+
+# Requires factories defined in spree_core
+require 'spree/core/testing_support/factories'
+require 'spree/core/testing_support/env'
+require 'spree/url_helpers'
 
 RSpec.configure do |config|
   # == Mock Framework

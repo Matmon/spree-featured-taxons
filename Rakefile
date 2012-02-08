@@ -3,14 +3,14 @@ require 'rake/testtask'
 require 'rake/packagetask'
 require 'rubygems/package_task'
 require 'rspec/core/rake_task'
-require "spree/core/testing_support/common_rake"
+require 'spree/core/testing_support/common_rake'
 
 RSpec::Core::RakeTask.new
 
-desc "Default Task"
 task :default => [:spec]
 
 spec = eval(File.read('spree_featured_taxon.gemspec'))
+
 Gem::PackageTask.new(spec) do |p|
   p.gem_spec = spec
 end
@@ -24,6 +24,6 @@ end
 
 desc "Generates a dummy app for testing"
 task :test_app do
-  ENV['LIB_NAME'] = "spree_featured_taxon"
+  ENV['LIB_NAME'] = 'spree_featured_taxon'
   Rake::Task['common:test_app'].invoke
 end
