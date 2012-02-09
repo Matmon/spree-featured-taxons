@@ -4,7 +4,7 @@ Spree::BaseHelper.module_eval do
     taxons = Array(taxons)
     return '' if taxons.empty?
     opt        = args.extract_options!
-    list_id    = opt.fetch(:id)    { 'featured-taxons' }
+    list_id    = opt.fetch(:id)    { 'featured-taxons-list' }
     list_class = opt.fetch(:class) { 'taxons-list' }
     current    = opt.fetch(:current).self_and_ancestors rescue []
 

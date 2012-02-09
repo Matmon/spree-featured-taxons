@@ -1,3 +1,10 @@
 /*
  *= require store/spree_core
 */
+
+#featured-taxons > h6.featured-taxon-root {
+  text-transform: uppercase;
+  border-bottom: 1px solid #DEDEDE;
+  margin-bottom: 5px;
+  color: #00ADEE;
+}

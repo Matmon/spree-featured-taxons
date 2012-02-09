@@ -23,7 +23,7 @@ describe "Spree::BaseHelper#featured_taxon_list" do
 
   describe "defaults" do
     it "should provide a default list id of 'featured-taxons'" do
-      featured_taxon_list(taxons).should have_selector('ul#featured-taxons')
+      featured_taxon_list(taxons).should have_selector('ul#featured-taxons-list')
     end
 
     it "should provide a default list class of 'taxons-list'" do

@@ -1,18 +1,21 @@
 require 'spec_helper.rb'
 
-class TestController
+class StubController
   # helper method is required for mixin containing helper methods
   # so we make method name passed to helper method public for tests :p
   def self.helper_method(name)
     send(:public, name)
   end
+end
+class SubController < StubController; end
 
-  extend SpreeFeaturedTaxon::FeaturedTaxonClassMethods
-  include SpreeFeaturedTaxon::FeaturedTaxonHelperMethods
+StubController.extend SpreeFeaturedTaxon::FeaturedTaxonClassMethods
+StubController.setup_featured_taxons do
+  Spree::Taxon.featured
 end
 
 describe "FeaturedTaxonClassMethods" do
-  subject { TestController }
+  subject { Class.new(StubController) }
   let(:featured) { ['one', 'two', 'three' ] }
 
   describe "with default featured scope " do
@@ -22,38 +25,39 @@ describe "FeaturedTaxonClassMethods" do
     end
 
     it "should provide a list of featured items by default" do
-      subject.featured_taxon_scope.should == featured
+      subject.featured_taxon_scope.call.should == featured
     end
 
     it "should permit changing scope" do
       subject.featured_taxon_scope do
-        self << 'four'
+        push('four')
       end
-      subject.featured_taxon_scope.should == featured << 'four'
+      subject.featured_taxon_scope.call.
+        should == ['one', 'two', 'three', 'four']
     end
   end
 
   describe "when initial scope is declared" do
-    subject { TestClass }
+    subject { SubClass }
     before do
-      TestClass = Class.new(TestController)
-      TestClass.class_eval do
-        initialize_featured_taxon_scope do
+      SubClass = Class.new(SubController)
+      SubClass.class_eval do
+        extend SpreeFeaturedTaxon::FeaturedTaxonClassMethods
+        setup_featured_taxons do
           ['one', 'two']
         end
       end
     end
 
     it "should use provided scope as default scope" do
-      subject.featured_taxon_scope.should == ['one', 'two']
+      subject.featured_taxon_scope.call.should == ['one', 'two']
     end
   end
 end
 
 describe "FeaturedTaxonHelperMethods" do
-  subject { TestController.new }
+  subject { Class.new(StubController).new }
   let(:featured) { ['one', 'two'] }
-  before { Spree::Taxon.should_receive(:featured).and_return(featured) }
 
   it "should give featured taxons in featured scope" do
     taxons = subject.featured_taxons
