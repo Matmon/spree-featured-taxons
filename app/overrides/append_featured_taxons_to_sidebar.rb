@@ -1,6 +1,6 @@
 Deface::Override::new({
     :virtual_path => 'spree/shared/_taxonomies',
-    :name => 'append_featured_taxonomies_to_sidebar',
+    :name => 'append_featured_taxons_to_sidebar',
     :insert_after => '#taxonomies:last-child',
     :text => %q{
 
