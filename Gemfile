@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 group :development, :test do
   gem 'sqlite3'
   gem 'sass', :require => 'sass'
-  gem 'spree', "1.0.0.rc4"
+  gem 'spree', '~> 1.0.0'
 end
 
 group :test do
